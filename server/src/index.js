@@ -7,7 +7,6 @@ const app = express();
 
 app.get('/', (req,res) => {
   const content = renderToString(<Home/>);
-
   res.send(content);
 })
 
