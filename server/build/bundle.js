@@ -21944,7 +21944,18 @@ var Home = function Home() {
   return _react2.default.createElement(
     'div',
     null,
-    'I am testing the new nodemon and webpack '
+    _react2.default.createElement(
+      'div',
+      null,
+      'I am testing the new nodemon and webpack '
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: function onClick() {
+          return console.log('hi there');
+        } },
+      'Press me '
+    )
   );
 };
 
