@@ -84,6 +84,7 @@ var _Home2 = _interopRequireDefault(_Home);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Using hydrate instead of render because we are rerendering the html.
 _reactDom2.default.hydrate(_react2.default.createElement(_Home2.default, null), document.getElementById('root'));
 
 /***/ }),
