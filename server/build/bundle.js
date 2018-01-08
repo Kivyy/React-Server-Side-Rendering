@@ -84,13 +84,19 @@ var _renderer = __webpack_require__(3);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
+var _createStore = __webpack_require__(8);
+
+var _createStore2 = _interopRequireDefault(_createStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
 
 app.use(_express2.default.static('public'));
+
 app.get('*', function (req, res) {
-  res.send((0, _renderer2.default)(req));
+  var store = (0, _createStore2.default)();
+  res.send((0, _renderer2.default)(req, store));
 });
 
 app.listen(3000, function () {
@@ -218,6 +224,43 @@ exports.default = function () {
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default })
   );
 };
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(9);
+
+var _reduxThunk = __webpack_require__(10);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  var store = (0, _redux.createStore)(reducers, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+
+  return store;
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
 
 /***/ })
 /******/ ]);
