@@ -10,4 +10,4 @@ ReactDOM.hydrate (
     <Routes/>
   </BrowserRouter>
   , document.getElementById('root')
-);
+ );
