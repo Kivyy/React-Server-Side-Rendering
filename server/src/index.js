@@ -12,6 +12,7 @@ app.use(express.static('public'));
 app.get('*', (req,res) => {
   const store = createStore();
 
+  // return array of matched routes and invoke loadData function if available. 
   const promises = matchRoutes(Routes, req.path).map(({route}) => {
     return route.loadData ? route.loadData(store) : null;
   });
