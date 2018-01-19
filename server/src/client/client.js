@@ -10,7 +10,12 @@ import Routes from './Routes';
 // node automatically find index as default. So we dont have to specific the file path
 import reducers from './reducers'
 
-const store = createStore(reducers, {} , applyMiddleware(thunk));
+ // Use the server side store as initial state in client side react/redux
+const store = createStore(
+  reducers,
+  window.INITIAL_STATE ,
+  applyMiddleware(thunk)
+);
 
 
 // Using hydrate instead of render because we are rerendering the html.
