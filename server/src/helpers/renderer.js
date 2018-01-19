@@ -14,7 +14,7 @@ export default (req,store) => {
     </Provider>
   );
 
-//set server side redux store to window initiate state so when redux rehydrate the dry template it contain the same store as server redux store. 
+//set server side redux store to window initiate state so when redux rehydrate the dry template it contain the same store as server redux store.
 
   return `
     <html>

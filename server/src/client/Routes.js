@@ -9,7 +9,7 @@ export default [
     exact: true
   },
   {
-    path: '/users',
-    ...UsersListPage
+    ...UsersListPage,
+    path: '/users'
   }
 ];

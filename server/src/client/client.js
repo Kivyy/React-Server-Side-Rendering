@@ -13,7 +13,7 @@ import reducers from './reducers'
  // Use the server side store as initial state in client side react/redux
 const store = createStore(
   reducers,
-  window.INITIAL_STATE ,
+  window.INITIAL_STATE,
   applyMiddleware(thunk)
 );
 
