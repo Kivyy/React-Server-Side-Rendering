@@ -9,7 +9,7 @@ import { renderRoutes } from 'react-router-config'
 import Routes from './Routes';
 // node automatically find index as default. So we dont have to specific the file path
 import reducers from './reducers'
-
+ 
  // Use the server side store as initial state in client side react/redux
 const store = createStore(
   reducers,
