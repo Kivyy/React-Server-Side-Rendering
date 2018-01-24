@@ -10,14 +10,14 @@ const app = express();
 
 app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
   proxyReqOptDecorator(opts){
-    opts.header['x-forward-host'] = 'localhost:3000';
+    opts.headers['x-forward-host'] = 'localhost:3000';
     return opts;
   }
 }));
 
 app.use(express.static('public'));
 app.get('*', (req,res) => {
-  const store = createStore();
+  const store = createStore(req);
 
   // return array of matched routes and invoke loadData function if available.
   const promises = matchRoutes(Routes, req.path).map(({route}) => {
