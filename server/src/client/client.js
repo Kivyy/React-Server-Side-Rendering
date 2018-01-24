@@ -6,15 +6,19 @@ import { createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config'
+import axios from 'axios';
 import Routes from './Routes';
 // node automatically find index as default. So we dont have to specific the file path
 import reducers from './reducers'
- 
+
+const axiosInstance = axios.create({
+  baseURL: '/api'
+})
  // Use the server side store as initial state in client side react/redux
 const store = createStore(
   reducers,
   window.INITIAL_STATE,
-  applyMiddleware(thunk)
+  applyMiddleware(thunk.withExtraArgument(axiosInstance));
 );
 
 
