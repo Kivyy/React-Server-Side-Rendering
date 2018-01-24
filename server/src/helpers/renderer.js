@@ -27,6 +27,6 @@ export default (req,store) => {
         </script>
         <script src='bundle.js'></script>
       </body>
-    </html>
+    </html>  
   `;
 }
