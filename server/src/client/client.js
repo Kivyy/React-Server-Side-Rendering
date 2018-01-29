@@ -9,7 +9,7 @@ import { renderRoutes } from 'react-router-config'
 import axios from 'axios';
 import Routes from './Routes';
 // node automatically find index as default. So we dont have to specific the file path
-import reducers from './reducers'
+import reducers from './reducers';
 
 const axiosInstance = axios.create({
   baseURL: '/api'
@@ -18,7 +18,7 @@ const axiosInstance = axios.create({
 const store = createStore(
   reducers,
   window.INITIAL_STATE,
-  applyMiddleware(thunk.withExtraArgument(axiosInstance));
+  applyMiddleware(thunk.withExtraArgument(axiosInstance))
 );
 
 
