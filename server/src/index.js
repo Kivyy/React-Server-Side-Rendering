@@ -1,5 +1,3 @@
-
-
 import 'babel-polyfill';
 import express from 'express';
 import { matchRoutes } from 'react-router-config';
@@ -24,7 +22,13 @@ app.get('*', (req,res) => {
   // return array of matched routes and invoke loadData function if available.
   const promises = matchRoutes(Routes, req.path).map(({route}) => {
     return route.loadData ? route.loadData(store) : null;
-  });
+  }).map((promise) => {
+    if(promise){
+      return new Promise((resolve, reject) => {
+        promise.then(resolve).catch(resolve);
+      });
+    }
+  })
 
   Promise.all(promises).then(() => {
     const context = {};
